@@ -1,7 +1,7 @@
 ---
 title: "开通Google Cloud免费服务"
 date: 2022-12-26T13:51:48+08:00
-draft: true
+draft: false
 summary: "开通 Google Cloud 免费服务，如何注册"
 weight: 12
 ---

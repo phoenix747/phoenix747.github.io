@@ -1,7 +1,7 @@
 ---
 title: "使用clash客户端"
 date: 2022-12-26T17:11:48+08:00
-draft: true
+draft: false
 summary: "最强客户端之一"
 weight: 14
 ---

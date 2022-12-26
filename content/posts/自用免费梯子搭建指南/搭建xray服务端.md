@@ -1,7 +1,7 @@
 ---
 title: "搭建xray服务端"
 date: 2022-12-26T16:51:48+08:00
-draft: true
+draft: false
 summary: "最强官方中文文档"
 weight: 13
 ---
