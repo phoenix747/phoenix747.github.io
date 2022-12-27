@@ -2,3 +2,5 @@ baseURL = 'http://example.org/'
 languageCode = 'zh-cn'
 title = "phoenix's toolbox"
 theme = "binario"
+
+disqusShortname = "phoenixs-toolbox"
