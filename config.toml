@@ -1,6 +1,5 @@
-baseURL = 'http://example.org/'
-languageCode = 'zh-cn'
-title = "phoenix's toolbox"
-theme = "binario"
+baseURL = "https://pho.rocks/"
 
-disqusShortname = "phoenixs-toolbox"
+[module]
+[module.hugoVersion]
+min = "0.77.0"
