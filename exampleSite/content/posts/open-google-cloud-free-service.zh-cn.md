@@ -9,21 +9,21 @@ series: ["Do-It-Yourself Free Ladder Building Guide"]
 
 1. 注册一个 Google 账号
 
-   - 需要一个临时的梯子上 Google
+    - 需要一个临时的梯子上 Google
 
-   - 需要手机号注册，中国手机号就行，一个不行可以换一个试试。后续每三个月需要一个 Google 账号
+    - 需要手机号注册，中国手机号就行，一个不行可以换一个试试。后续每三个月需要一个 Google 账号
 
 2. 登录<https://cloud.google.com/>，开通免费服务
 
-   - 需要一张非银联信用卡
+    - 需要一张非银联信用卡
 
-     ![](https://media.heptabase.com/v1/images/7d76967d-dd25-44d5-8894-f08ba95d8a82/322ba4da-7d2a-4555-980c-cf02cdbb3f49/image.png)
+        ![](/images/posts/open-google-cloud-free-service/1.png)
 
-   - 需要一个美国地址，随便 Google 一个美国地址生成器生成一个就行，比如：<https://www.meiguodizhi.com/>
+    - 需要一个美国地址，随便 Google 一个美国地址生成器生成一个就行，比如：<https://www.meiguodizhi.com/>
 
 3. 信息填写正确提交后，就可以直接开通了。可以上控制台的结算 → 概览里确认下。比如：
 
-   ![](https://media.heptabase.com/v1/images/7d76967d-dd25-44d5-8894-f08ba95d8a82/1ff4b4e2-2c53-411d-8094-e2c71a82a80c/image.png)
+    ![](/images/posts/open-google-cloud-free-service/2.png)
 
 ### 不断服务切账号方法
 
@@ -33,8 +33,12 @@ series: ["Do-It-Yourself Free Ladder Building Guide"]
 
 然后骚操作来了，在新账号里找到结算账号管理里的“添加主账号”
 
-![](https://media.heptabase.com/v1/images/7d76967d-dd25-44d5-8894-f08ba95d8a82/f121de79-b606-4f1e-97d1-0a7ac14ed748/image.png)添加正在使用快到期的账号到新账号的账单管理者（Billing Account Administrator）里
+![](/images/posts/open-google-cloud-free-service/3.png)
 
-![](https://media.heptabase.com/v1/images/7d76967d-dd25-44d5-8894-f08ba95d8a82/406ab475-2f94-413a-9975-dc1072c71844/image.png)然后回老账号，把当前项目的结算账号换成新的，老的项目就有了新的免费周期和金额了。
+添加正在使用快到期的账号到新账号的账单管理者（Billing Account Administrator）里
+
+![](/images/posts/open-google-cloud-free-service/4.png)
+
+然后回老账号，把当前项目的结算账号换成新的，老的项目就有了新的免费周期和金额了。
 
 怀疑 Google 严格遵守了不记录用户已删除信用卡信息这条，上面的新账号只有信用卡信息是可以删除后重复使用。也只有这条能检测出这种重复刷免费服务的方式。

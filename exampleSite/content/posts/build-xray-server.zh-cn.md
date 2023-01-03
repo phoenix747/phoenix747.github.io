@@ -4,6 +4,7 @@ date: 2022-12-26T16:51:48+08:00
 draft: false
 summary: "最强官方中文文档"
 weight: 13
+series: ["Do-It-Yourself Free Ladder Building Guide"]
 ---
 
 之所以推荐 xray，是因为 xray 有最好的中文使用官方说明文档，可以按照官方文档一步一步完成配置
