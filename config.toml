@@ -1,4 +1,4 @@
-baseURL = "https://pho.rocks/"
+baseURL = "https://phoenix747.github.io/"
 
 [module]
 [module.hugoVersion]
