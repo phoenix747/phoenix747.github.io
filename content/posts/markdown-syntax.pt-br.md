@@ -14,9 +14,11 @@ categories = [
 ]
 series = ["Guia do Thema"]
 aliases = ["migrate-from-jekyl"]
+draft = true
 +++
 
 Esse artigo é um exemplo básico para mostrar a sintaxe Markdown que é usada nos arquivos de conteúdo do Hugo. Ele também mostrar como cada elemento básico HTML é estilizado com CSS com os temas do Hugo.
+
 <!--more-->
 
 ## Cabeçalhos
@@ -24,10 +26,15 @@ Esse artigo é um exemplo básico para mostrar a sintaxe Markdown que é usada n
 Os seguintes elementos HTML `<h1>`—`<h6>` representam 6 níveis de cabeçalhos de seção. `<h1>` é para seções de nível mais alto enquanto `<h6>` é para o nível mais baixo.
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 ## Parágrafo
@@ -43,7 +50,7 @@ O elemento de citações representa um conteúdo citado de outra origem, opciona
 #### Citações sem atribuição
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use *Markdown syntax* within a blockquote.
+> **Note** that you can use _Markdown syntax_ within a blockquote.
 
 #### Citações com atribuição
 
@@ -56,31 +63,31 @@ O elemento de citações representa um conteúdo citado de outra origem, opciona
 
 Tabelas não fazem parte do cerne da especificação do Markdown, mas o Hugo oferece suporte a elas.
 
-   Nome | Idade
---------|-------
-    Bob | 27
-  Alice | 23
+| Nome  | Idade |
+| ----- | ----- |
+| Bob   | 27    |
+| Alice | 23    |
 
 #### Tabelas com Markdown inline
 
 | Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
+| --------- | -------- | ------ |
+| _italics_ | **bold** | `code` |
 
 ## Blocos de código
 
 #### Blocos de código com crase
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <title>Exemplo de Documento HTML5</title>
-</head>
-<body>
-  <p>Teste</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Exemplo de Documento HTML5</title>
+  </head>
+  <body>
+    <p>Teste</p>
+  </body>
 </html>
 ```
 
@@ -100,6 +107,7 @@ Tabelas não fazem parte do cerne da especificação do Markdown, mas o Hugo ofe
 #### Blocos de código com highlight shortcode interno do Hugo
 
 {{< highlight html >}}
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -122,19 +130,19 @@ Tabelas não fazem parte do cerne da especificação do Markdown, mas o Hugo ofe
 
 #### Listas não Ordenada
 
-* Um item
-* Outro item
-* Algum outro item
+- Um item
+- Outro item
+- Algum outro item
 
 #### Listas aninhadas
 
-* Frutas
-  * Maçã
-  * Laranja
-  * Banana
-* Laticínios
-  * Leite
-  * Queijo
+- Frutas
+  - Maçã
+  - Laranja
+  - Banana
+- Laticínios
+  - Leite
+  - Queijo
 
 ## Outros Elementos — abbr, sub, sup, kbd, mark
 

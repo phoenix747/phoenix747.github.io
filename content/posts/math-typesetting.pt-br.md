@@ -4,9 +4,11 @@ title: Configuração de Equações Matemáticas
 date: 2019-03-08
 description: Um guia rápido sobre utilizar KaTeX
 math: true
+draft: true
 ---
 
 Em um projeto Hugo as Notações Matemáticas podem ser usadas com a ajuda de bibliotecas JavaScript de terceiros.
+
 <!--more-->
 
 Nesse exemplo usaremos o [KaTeX](https://katex.org/).
@@ -28,6 +30,7 @@ Nesse exemplo usaremos o [KaTeX](https://katex.org/).
 
 {{< math.inline >}}
 {{ if or .Page.Params.math .Site.Params.math }}
+
 <!-- KaTeX -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
@@ -38,12 +41,14 @@ Nesse exemplo usaremos o [KaTeX](https://katex.org/).
 ### Examples
 
 {{< math.inline >}}
+
 <p>
 Notação inline: \(\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…\)
 </p>
 {{</ math.inline >}}
 
 Notação em bloco:
+
 $$
  \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
 $$
