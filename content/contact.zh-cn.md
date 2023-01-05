@@ -1,6 +1,6 @@
 +++
-title = "Contato"
+title = "Contact"
 slug = "contact"
 +++
 
-Follow me, @johndoe.
+phoenix.nir@gmail.com
