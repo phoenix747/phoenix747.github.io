@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,16 +24,34 @@
       .a:hover {
         text-decoration: underline; /* 鼠标悬停时添加下划线 */
       }
+      .language-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      .language-switch select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+      }
     </style>
   </head>
   <body>
+    <div class="language-switch">
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
     <div class="hello-section">
-      <p>👋🏻 Hello</p>
+      <p data-translate="hello">👋🏻 Hello</p>
     </div>
     <div class="section">
-      <p><strong>I am Phoenix.</strong></p>
-      <p>I am living and working in Beijing, China.</p>
-      <p>
+      <p><strong data-translate="intro">I am Phoenix.</strong></p>
+      <p data-translate="location">I am living and working in Beijing, China.</p>
+      <p data-translate="description">
         I am an experienced full-stack engineer, proficient in a wide range of
         skills across the IT engineering spectrum, including front-end,
         back-end, client-side, and data domains. Over the years, I have been
@@ -43,7 +61,7 @@
         utilizing advanced technologies to bring convenience to people's lives
         and work.
       </p>
-      <p>
+      <p data-translate="twitter">
         You can find me on
         <a href="https://twitter.com/phoenix_zhang">Twitter</a> where I share my
         life and work.
@@ -51,23 +69,19 @@
     </div>
 
     <div class="section">
-      <p>
-        I have created a project named
-        <a href="https://spirit-hole.rocks">Spirit Hole</a>, aimed at providing
-        psychological comfort to individuals through advanced technology.
-        Initially, the project conducts a personality test to understand the
-        basic personality traits of the user, then, combining the user's current
-        mood with ChatGPT technology, it provides personalized psychological
-        comfort. Through intelligent conversation, we help users find solace
-        during challenging times, aiding them in maintaining a good mental
-        state. This is not just a technical project, but a warm corner dedicated
-        to serving the society and helping individuals find inner peace through
-        AI technology.
+      <p data-translate="aiX">
+        I have created a project named <a href="https://ai-x.rocks">AI X</a>. AI X is an innovative tool designed to generate Twitter content (both text and images) using AI technology, and automatically schedule posts based on selected topics. This tool aims to help users easily create engaging Twitter content while saving time and effort. With AI-powered topic selection and content generation capabilities, users can maintain an active Twitter presence and provide valuable information to their followers.
       </p>
     </div>
 
     <div class="section">
-      <p>
+      <p data-translate="freeVPS">
+        I have also created a tutorial titled \"<a href=\"https://phoenixnir.gumroad.com/l/enrlql\">How to build a free high-traffic ladder</a>\". This guide provides step-by-step instructions on setting up a free, high-traffic VPS service using Google Cloud. It covers everything from obtaining Google Cloud's $300 free trial credit to configuring a virtual machine, installing and setting up Xray service, and even how to maintain free service by switching accounts when the trial period ends. This tutorial is ideal for those with some technical background who want to build their own high-traffic VPS service.
+      </p>
+    </div>
+
+    <div class="section">
+      <p data-translate="cat">
         I have a lovely British Shorthair cat named Nineteen, born on August 19,
         2022, hence the name Nineteen. Nineteen is more than just a pet; it's an
         important member of our family. Its arrival has brought endless joy and
@@ -79,5 +93,48 @@
         our daily lives, making every day a bit brighter.
       </p>
     </div>
+
+    <script>
+      const translations = {
+        en: {
+          hello: "👋🏻 Hello",
+          intro: "I am Phoenix.",
+          location: "I am living and working in Beijing, China.",
+          description: "I am an experienced full-stack engineer, proficient in a wide range of skills across the IT engineering spectrum, including front-end, back-end, client-side, and data domains. Over the years, I have been working in well-known large enterprises, accumulating extensive practical experience and deep industry insights. In the future, I aspire to create my own independent products in the field of AI applications, utilizing advanced technologies to bring convenience to people's lives and work.",
+          twitter: "You can find me on Twitter where I share my life and work.",
+          aiX: "I have created a project named <a href=\"https://ai-x.rocks\">AI X</a>. AI X is an innovative tool designed to generate Twitter content (both text and images) using AI technology, and automatically schedule posts based on selected topics. This tool aims to help users easily create engaging Twitter content while saving time and effort. With AI-powered topic selection and content generation capabilities, users can maintain an active Twitter presence and provide valuable information to their followers.",
+          freeVPS: "I have also created a tutorial titled \"<a href=\"https://phoenixnir.gumroad.com/l/enrlql\">How to build a free high-traffic ladder</a>\". This guide provides step-by-step instructions on setting up a free, high-traffic VPS service using Google Cloud. It covers everything from obtaining Google Cloud's $300 free trial credit to configuring a virtual machine, installing and setting up Xray service, and even how to maintain free service by switching accounts when the trial period ends. This tutorial is ideal for those with some technical background who want to build their own high-traffic VPS service.",
+          cat: "I have a lovely British Shorthair cat named Nineteen, born on August 19, 2022, hence the name Nineteen. Nineteen is more than just a pet; it's an important member of our family. Its arrival has brought endless joy and warmth to our lives. Coming home to Nineteen's cheerful greetings every day instantly dissolves all the fatigue and stress. Its playful and clever antics always manage to make us burst into laughter, becoming an indispensable source of joy in our household. Every member of our family adores Nineteen. Its cuteness and loyalty have seamlessly blended into our daily lives, making every day a bit brighter."
+        },
+        zh: {
+          hello: "👋🏻 你好",
+          intro: "我是Phoenix。",
+          location: "我生活和工作在中国北京。",
+          description: "我是一名经验丰富的全栈工程师，精通IT工程领域的广泛技能，包括前端、后端、客户端和数据领域。多年来，我一直在各类企业工作，积累了丰富的实践经验和深厚的行业洞察力。未来，我希望在AI应用领域创造自己的独立产品，利用先进技术为人们的生活和工作带来便利。",
+          twitter: "你可以在Twitter上找到我，那里我分享我的生活和工作。",
+          aiX: "我创建了一个名为 <a href=\"https://ai-x.rocks\">AI X</a> 的项目。AI X 是一个创新的工具，专门用于通过 AI 技术生成 Twitter 图文内容，并能够自动定时按选题发送。这个工具旨在帮助用户轻松创建引人入胜的 Twitter 内容，同时节省时间和精力。通过 AI 的智能选题和内容生成能力，用户可以保持其 Twitter 账户的活跃度，并提供有价值的信息给他们的关注者。",
+          freeVPS: "我还创建了一个名为 <a href=\"https://phoenixnir.gumroad.com/l/enrlql\">如何自建免费大流量梯子</a> 的教程。这个教程提供了设置使用 Google Cloud 的免费高流量 VPS 服务自建梯子的逐步指南。它涵盖了从获得 Google Cloud 的 $300 免费试用信用额度到配置虚拟机、安装和设置 Xray 服务，以及如何在试用期结束时切换账户来维持免费服务的所有内容。这个教程适合那些有技术背景的人，他们想自己建立高流量梯子服务。",
+          cat: "我有一只可爱的英国短毛猫，名叫Nineteen，出生于2022年8月19日，因此得名Nineteen。Nineteen不仅仅是一只宠物，它是我们家庭的重要成员。它的到来为我们的生活带来了无尽的欢乐和温暖。每天回到家看到Nineteen愉快的问候，瞬间就能消除所有的疲劳和压力。它调皮可爱的举动总能让我们开怀大笑，成为我们家中不可或缺的欢乐源泉。我们家的每个成员都喜爱Nineteen。它的可爱和忠诚已经无缝融入我们的日常生活，让每一天都变得更加美好。"
+        }
+      };
+
+      function updateLanguage(lang) {
+        document.documentElement.lang = lang;
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+          }
+        });
+      }
+
+      document.getElementById('languageSelect').addEventListener('change', (e) => {
+        updateLanguage(e.target.value);
+      });
+
+      // 初始化语言为英文
+      updateLanguage('en');
+    </script>
   </body>
 </html>
