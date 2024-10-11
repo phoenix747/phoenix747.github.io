@@ -115,9 +115,14 @@
           twitter: "你可以在Twitter上找到我，那里我分享我的生活和工作。",
           aiX: "我创建了一个名为 <a href=\"https://ai-x.rocks\">AI X</a> 的项目。AI X 是一个创新的工具，专门用于通过 AI 技术生成 Twitter 图文内容，并能够自动定时按选题发送。这个工具旨在帮助用户轻松创建引人入胜的 Twitter 内容，同时节省时间和精力。通过 AI 的智能选题和内容生成能力，用户可以保持其 Twitter 账户的活跃度，并提供有价值的信息给他们的关注者。",
           freeVPS: "我还创建了一个名为 <a href=\"https://phoenixnir.gumroad.com/l/enrlql\">如何自建免费大流量梯子</a> 的教程。这个教程提供了设置使用 Google Cloud 的免费高流量 VPS 服务自建梯子的逐步指南。它涵盖了从获得 Google Cloud 的 $300 免费试用信用额度到配置虚拟机、安装和设置 Xray 服务，以及如何在试用期结束时切换账户来维持免费服务的所有内容。这个教程适合那些有技术背景的人，他们想自己建立高流量梯子服务。",
-          cat: "我有一只可爱的英国短毛猫，名叫Nineteen，出生于2022年8月19日，因此得名Nineteen。Nineteen不仅仅是一只宠物，它是我们家庭的重要成员。它的到来为我们的生活带来了无尽的欢乐和温暖。每天回到家看到Nineteen愉快的问候，瞬间就能消除所有的疲劳和压力。它调皮可爱的举动总能让我们开怀大笑，成为我们家中不可或缺的欢乐源泉。我们家的每个成员都喜爱Nineteen。它的可爱和忠诚已经无缝融入我们的日常生活，让每一天都变得更加美好。"
+          cat: "我有一只可爱的金渐层猫，名叫Nineteen，出生于2022年8月19日，因此得名Nineteen。Nineteen不仅仅是一只宠物，它是我们家庭的重要成员。它的到来为我们的生活带来了无尽的欢乐和温暖。每天回到家看到Nineteen愉快的问候，瞬间就能消除所有的疲劳和压力。它调皮可爱的举动总能让我们开怀大笑，成为我们家中不可或缺的欢乐源泉。我们家的每个成员都喜爱Nineteen。它的可爱和忠诚已经无缝融入我们的日常生活，让每一天都变得更加美好。"
         }
       };
+
+      function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+      }
 
       function updateLanguage(lang) {
         document.documentElement.lang = lang;
@@ -128,14 +133,18 @@
             element.innerHTML = translations[lang][key];
           }
         });
+        
+        // 更新选择框的值
+        document.getElementById('languageSelect').value = lang;
       }
 
       document.getElementById('languageSelect').addEventListener('change', (e) => {
         updateLanguage(e.target.value);
       });
 
-      // 初始化语言为英文
-      updateLanguage('en');
+      // 初始化语言
+      const initialLang = getBrowserLanguage();
+      updateLanguage(initialLang);
     </script>
   </body>
 </html>
