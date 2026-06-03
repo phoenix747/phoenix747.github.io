@@ -3,157 +3,1258 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Less is More</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta
+      name="description"
+      content="Phoenix is a Beijing-based full-stack engineer, AI builder, and data infra builder shipping practical products."
+    />
+    <meta property="og:title" content="Phoenix - AI Builder & Data Infra" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer, AI builder, and data infra builder based in Beijing."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pho.rocks/" />
+    <title>Phoenix - AI Builder & Data Infra</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23080b0f'/%3E%3Cpath d='M16 42c10-2 17-8 20-20 5 7 8 15 12 20-9-3-18-3-32 0Z' fill='%2365f2bd'/%3E%3C/svg%3E"
+    />
     <style>
+      :root {
+        --bg: #f7f8f5;
+        --surface: #ffffff;
+        --ink: #0b0d10;
+        --muted: #59615d;
+        --line: #dce2dc;
+        --line-strong: #aeb8b0;
+        --accent: #12c986;
+        --accent-strong: #079b67;
+        --accent-soft: #dbf8ed;
+        --charcoal: #171b1f;
+        --shadow: 0 24px 70px rgba(22, 29, 25, 0.1);
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        background-color: #f5deb3; /* 使用最接近纸质的颜色作为背景 */
-        font-family: Arial, sans-serif;
-        padding: 20px;
+        margin: 0;
+        background:
+          linear-gradient(rgba(18, 201, 134, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(18, 201, 134, 0.055) 1px, transparent 1px),
+          var(--bg);
+        background-size: 44px 44px;
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        letter-spacing: 0;
       }
-      .hello-section {
-        margin-bottom: 30px;
-        font-size: 2em;
+
+      a {
+        color: inherit;
+        text-decoration: none;
       }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(220, 226, 220, 0.72);
+        background: rgba(247, 248, 245, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        width: min(var(--max), calc(100% - 40px));
+        min-height: 72px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 16px;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--charcoal);
+        background: var(--charcoal);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        font-weight: 900;
+        border-radius: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 22px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 8px;
+      }
+
+      .language-toggle button {
+        min-width: 42px;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 7px 9px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .language-toggle button[aria-pressed="true"] {
+        background: var(--charcoal);
+        color: #ffffff;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
       .section {
-        margin-bottom: 20px;
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
       }
-      .a {
-        color: pink; /* 超链接颜色 */
-        text-decoration: none; /* 去掉下划线 */
+
+      .hero {
+        min-height: calc(100vh - 72px);
+        padding: 88px 0 36px;
+        display: grid;
+        align-items: center;
       }
-      .a:hover {
-        text-decoration: underline; /* 鼠标悬停时添加下划线 */
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        align-items: center;
+        gap: 64px;
       }
-      .language-switch {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
       }
-      .language-switch select {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        background-color: #fff;
+
+      h1 {
+        max-width: 680px;
+        font-size: clamp(70px, 9vw, 132px);
+        line-height: 0.92;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 640px;
+      }
+
+      .hero-subtitle {
+        margin-top: 28px;
+        font-size: clamp(24px, 3vw, 40px);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .hero-text {
+        margin-top: 24px;
+        max-width: 560px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .hero-meta {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .meta-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--accent);
+        border-radius: 999px;
+        box-shadow: 0 0 0 5px rgba(18, 201, 134, 0.12);
+      }
+
+      .actions {
+        margin-top: 42px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid var(--charcoal);
+        background: var(--charcoal);
+        color: #ffffff;
+        padding: 0 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 800;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      .button.secondary {
+        background: var(--surface);
+        color: var(--ink);
+        border-color: var(--line-strong);
+      }
+
+      .button svg {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+      }
+
+      .hero-panel {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: var(--shadow);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .panel-top {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--line);
+        background: #fbfcfa;
+      }
+
+      .traffic {
+        display: flex;
+        gap: 7px;
+      }
+
+      .traffic span {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--line-strong);
+      }
+
+      .traffic span:first-child {
+        background: var(--accent);
+      }
+
+      .panel-title {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .panel-preview {
+        position: relative;
+        display: block;
+        background: #06141f;
+      }
+
+      .panel-preview img {
+        width: 100%;
+        aspect-ratio: 1.52;
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      .panel-preview::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 34%;
+        background: linear-gradient(transparent, rgba(6, 20, 31, 0.92));
+      }
+
+      .panel-caption {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 20px;
+        z-index: 1;
+        display: block;
+        color: #ffffff;
+      }
+
+      .panel-caption strong {
+        display: block;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      .panel-caption span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr);
+        align-items: end;
+        gap: 48px;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 0.98;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .section-lede {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .work {
+        padding: 48px 0 96px;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .project-card {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.88);
+        border-radius: 8px;
+        overflow: hidden;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow);
+      }
+
+      .project-media {
+        display: block;
+        background: #0b1117;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .project-media img {
+        width: 100%;
+        aspect-ratio: 1.64;
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      .project-body {
+        padding: 24px;
+      }
+
+      .project-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      h3 {
+        font-size: 26px;
+        line-height: 1.1;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .project-link {
+        width: 38px;
+        height: 38px;
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+      }
+
+      .project-link:hover {
+        border-color: var(--accent-strong);
+        color: var(--accent-strong);
+      }
+
+      .project-link svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .project-desc {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .project-tags {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .project-tags span {
+        border: 1px solid var(--line);
+        background: #fbfcfa;
+        padding: 7px 9px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .about-band {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.66);
+      }
+
+      .about {
+        padding: 92px 0;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 72px;
+        align-items: start;
+      }
+
+      .about-copy {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.75;
+      }
+
+      .principles {
+        display: grid;
+        gap: 12px;
+      }
+
+      .principle {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 16px;
+        align-items: start;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .principle:last-child {
+        border-bottom: 0;
+      }
+
+      .principle-index {
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .principle strong {
+        display: block;
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .principle p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .personal {
+        padding: 96px 0;
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.6fr);
+        gap: 54px;
+        align-items: center;
+      }
+
+      .note {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 8px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .note p {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .signal {
+        min-height: 260px;
+        border: 1px solid var(--charcoal);
+        background:
+          linear-gradient(135deg, rgba(18, 201, 134, 0.24), transparent 36%),
+          #101417;
+        border-radius: 8px;
+        color: #ffffff;
+        padding: 28px;
+        display: grid;
+        align-content: end;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .signal::before {
+        content: "";
+        position: absolute;
+        inset: 28px 28px auto auto;
+        width: 120px;
+        height: 120px;
+        border: 1px solid rgba(101, 242, 189, 0.34);
+        transform: rotate(22deg);
+      }
+
+      .signal::after {
+        content: "";
+        position: absolute;
+        left: 28px;
+        right: 28px;
+        top: 36px;
+        height: 1px;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(101, 242, 189, 0.52) 0 24px,
+          transparent 24px 36px
+        );
+      }
+
+      .signal strong {
+        position: relative;
+        z-index: 1;
+        max-width: 320px;
+        font-size: 28px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .signal span {
+        position: relative;
+        z-index: 1;
+        margin-top: 14px;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .contact-band {
+        background: var(--charcoal);
+        color: #ffffff;
+      }
+
+      .contact {
+        padding: 78px 0 34px;
+      }
+
+      .contact-row {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+        gap: 56px;
+        align-items: end;
+      }
+
+      .contact h2 {
+        color: #ffffff;
+      }
+
+      .contact p {
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.67);
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .contact-links a {
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 0 16px;
+        font-weight: 800;
+      }
+
+      .contact-links a:hover {
+        border-color: rgba(101, 242, 189, 0.64);
+        color: var(--accent);
+      }
+
+      .footer {
+        margin-top: 64px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 13px;
+      }
+
+      @media (max-width: 980px) {
+        .hero {
+          padding-top: 64px;
+        }
+
+        .hero-grid,
+        .section-head,
+        .about,
+        .personal,
+        .contact-row {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid,
+        .about,
+        .personal,
+        .contact-row {
+          gap: 38px;
+        }
+
+        .hero-panel {
+          max-width: 680px;
+        }
+
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        body {
+          background-size: 34px 34px;
+        }
+
+        .nav {
+          width: min(100% - 28px, var(--max));
+          min-height: 64px;
+        }
+
+        .nav-links a {
+          display: none;
+        }
+
+        .section {
+          width: min(100% - 28px, var(--max));
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 48px 0 34px;
+        }
+
+        h1 {
+          font-size: clamp(58px, 18vw, 92px);
+        }
+
+        .hero-subtitle {
+          font-size: 27px;
+        }
+
+        .hero-text,
+        .about-copy {
+          font-size: 16px;
+        }
+
+        .actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .panel-caption {
+          position: static;
+          display: block;
+          background: #06141f;
+          padding: 18px 20px 20px;
+        }
+
+        .panel-preview::after {
+          display: none;
+        }
+
+        .project-body,
+        .note,
+        .signal {
+          padding: 22px;
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
       }
     </style>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VV3Q4G5EL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-9VV3Q4G5EL');
-  </script>
   <body>
-    <div class="language-switch">
-      <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="zh">中文</option>
-      </select>
-    </div>
-    <div class="hello-section">
-      <p data-translate="hello">👋🏻 Hello</p>
-    </div>
-    <div class="section">
-      <p><strong data-translate="intro">I am Phoenix.</strong></p>
-      <p data-translate="location">I am living and working in Beijing, China.</p>
-      <p data-translate="description">
-        I am an experienced full-stack engineer, proficient in a wide range of
-        skills across the IT engineering spectrum, including front-end,
-        back-end, client-side, and data domains. Over the years, I have been
-        working in well-known large enterprises, accumulating extensive
-        practical experience and deep industry insights. In the future, I aspire
-        to create my own independent products in the field of AI applications,
-        utilizing advanced technologies to bring convenience to people's lives
-        and work.
-      </p>
-      <p data-translate="twitter">
-        You can find me on
-        <a href="https://twitter.com/phoenix_zhang">Twitter</a> where I share my
-        life and work.
-      </p>
-    </div>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Phoenix home">
+          <span class="brand-mark">P</span>
+          <span>Phoenix</span>
+        </a>
+        <div class="nav-links">
+          <a href="#work" data-i18n="navWork">Work</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+          <div class="language-toggle" aria-label="Language">
+            <button type="button" data-lang-option="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang-option="zh" aria-pressed="false">中文</button>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-    <div class="section">
-      <p data-translate="aiX">
-        I have created a project named <a href="https://ai-x.rocks">AI X</a>. AI X is an innovative tool designed to generate Twitter content (both text and images) using AI technology, and automatically schedule posts based on selected topics. This tool aims to help users easily create engaging Twitter content while saving time and effort. With AI-powered topic selection and content generation capabilities, users can maintain an active Twitter presence and provide valuable information to their followers.
-      </p>
-    </div>
+    <main id="top">
+      <section class="hero section" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="hero-title">Phoenix</h1>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">
+              Full-stack engineer, AI builder, data infra.
+            </p>
+            <p class="hero-text" data-i18n="heroText">
+              I build practical AI products and data systems from idea to production:
+              product interfaces, backend services, automation, and the pipelines that
+              keep them useful.
+            </p>
+            <div class="hero-meta" aria-label="Profile details">
+              <span class="meta-item">
+                <span class="meta-dot" aria-hidden="true"></span>
+                <span data-i18n="location">Beijing, China</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-dot" aria-hidden="true"></span>
+                <span data-i18n="availability">Building independent AI products</span>
+              </span>
+            </div>
+            <div class="actions">
+              <a class="button" href="#work">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M5 12h14m-6-6 6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span data-i18n="viewWork">View work</span>
+              </a>
+              <a
+                class="button secondary"
+                href="https://twitter.com/phoenix_zhang"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M6 18 18 6M9 6h9v9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span data-i18n="followX">Follow on X</span>
+              </a>
+            </div>
+          </div>
 
-    <div class="section">
-      <p data-translate="freeVPS">
-        I have also created a tutorial titled \"<a href=\"https://phoenixnir.gumroad.com/l/enrlql\">How to build a free high-traffic ladder</a>\". This guide provides step-by-step instructions on setting up a free, high-traffic VPS service using Google Cloud. It covers everything from obtaining Google Cloud's $300 free trial credit to configuring a virtual machine, installing and setting up Xray service, and even how to maintain free service by switching accounts when the trial period ends. This tutorial is ideal for those with some technical background who want to build their own high-traffic VPS service.
-      </p>
-    </div>
+          <aside class="hero-panel" aria-label="Polysage preview">
+            <div class="panel-top">
+              <div class="traffic" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="panel-title">polysage.xyz</span>
+            </div>
+            <a
+              class="panel-preview"
+              href="https://polysage.xyz/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="assets/polysage-preview.png"
+                alt="Polysage product preview showing Polymarket opportunity markets"
+                width="1360"
+                height="860"
+              />
+              <span class="panel-caption">
+                <strong data-i18n="heroPanelTitle">Prediction-market intelligence</strong>
+                <span data-i18n="heroPanelText">
+                  Model edge, whale flow, and market movement in one daily scanning loop.
+                </span>
+              </span>
+            </a>
+          </aside>
+        </div>
+      </section>
 
-    <div class="section">
-      <p data-translate="cat">
-        I have a lovely British Shorthair cat named Nineteen, born on August 19,
-        2022, hence the name Nineteen. Nineteen is more than just a pet; it's an
-        important member of our family. Its arrival has brought endless joy and
-        warmth to our lives. Coming home to Nineteen's cheerful greetings every
-        day instantly dissolves all the fatigue and stress. Its playful and
-        clever antics always manage to make us burst into laughter, becoming an
-        indispensable source of joy in our household. Every member of our family
-        adores Nineteen. Its cuteness and loyalty have seamlessly blended into
-        our daily lives, making every day a bit brighter.
-      </p>
-    </div>
+      <section id="work" class="work section" aria-labelledby="work-title">
+        <div class="section-head">
+          <h2 id="work-title" data-i18n="workTitle">Products in the open.</h2>
+          <p class="section-lede" data-i18n="workLede">
+            Current and past projects sit where AI, public data, automation, and
+            product design meet.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <article class="project-card">
+            <a
+              class="project-media"
+              href="https://polysage.xyz/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Polysage"
+            >
+              <img
+                src="assets/polysage-preview.png"
+                alt="Polysage interface preview"
+                width="1360"
+                height="860"
+              />
+            </a>
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>Polysage</h3>
+                <a
+                  class="project-link"
+                  href="https://polysage.xyz/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Open Polysage"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M7 17 17 7M9 7h8v8"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <p class="project-desc" data-i18n="polysageDesc">
+                A public intelligence surface for Polymarket odds: opportunity markets,
+                large-trade flow, movers, and model watchlists designed for daily scanning.
+              </p>
+              <div class="project-tags" aria-label="Polysage tags">
+                <span data-i18n="polysageTagOne">prediction markets</span>
+                <span data-i18n="polysageTagTwo">data product</span>
+                <span data-i18n="polysageTagThree">market intelligence</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-media"
+              href="https://ai-x.rocks/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open AI X"
+            >
+              <img
+                src="assets/ai-x-preview.png"
+                alt="AI X product preview"
+                width="1360"
+                height="860"
+              />
+            </a>
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>AI X</h3>
+                <a
+                  class="project-link"
+                  href="https://ai-x.rocks/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Open AI X"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M7 17 17 7M9 7h8v8"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <p class="project-desc" data-i18n="aiXDesc">
+                An AI-assisted content tool for generating, selecting, and scheduling
+                Twitter/X posts with a practical workflow around creator-owned API keys.
+              </p>
+              <div class="project-tags" aria-label="AI X tags">
+                <span data-i18n="aiXTagOne">AI content</span>
+                <span data-i18n="aiXTagTwo">automation</span>
+                <span data-i18n="aiXTagThree">creator tooling</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="about-band">
+        <section id="about" class="about section" aria-labelledby="about-title">
+          <div>
+            <h2 id="about-title" data-i18n="aboutTitle">Builder first.</h2>
+            <p class="about-copy" data-i18n="aboutCopy">
+              I work across the full stack because useful AI products rarely stop at one
+              layer. The interface, backend, data model, observability, and delivery path
+              all have to line up before a product becomes something people can return to.
+            </p>
+          </div>
+
+          <div class="principles" aria-label="Working principles">
+            <div class="principle">
+              <span class="principle-index">01</span>
+              <div>
+                <strong data-i18n="principleOneTitle">Ship the working loop</strong>
+                <p data-i18n="principleOneText">
+                  Start with the smallest real workflow that creates signal, then harden
+                  it with feedback from production data.
+                </p>
+              </div>
+            </div>
+            <div class="principle">
+              <span class="principle-index">02</span>
+              <div>
+                <strong data-i18n="principleTwoTitle">Make data usable</strong>
+                <p data-i18n="principleTwoText">
+                  Data infra is only valuable when people can trust it, inspect it, and
+                  turn it into decisions without ceremony.
+                </p>
+              </div>
+            </div>
+            <div class="principle">
+              <span class="principle-index">03</span>
+              <div>
+                <strong data-i18n="principleThreeTitle">Keep products practical</strong>
+                <p data-i18n="principleThreeText">
+                  The best AI features disappear into the workflow instead of asking users
+                  to babysit a demo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="personal section" aria-labelledby="personal-title">
+        <div>
+          <h2 id="personal-title" data-i18n="personalTitle">A small personal note.</h2>
+          <div class="note">
+            <p data-i18n="catNote">
+              Outside work, there is Nineteen, a golden British Shorthair born on August
+              19, 2022. He keeps the house warm, noisy in the right way, and a little less
+              optimized.
+            </p>
+          </div>
+        </div>
+        <div class="signal" aria-hidden="true">
+          <strong data-i18n="signalTitle">Less posture. More shipped surface.</strong>
+          <span data-i18n="signalText">
+            Products, data systems, and notes from the build side of AI.
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="contact-band">
+      <section class="contact section" aria-labelledby="contact-title">
+        <div class="contact-row">
+          <div>
+            <h2 id="contact-title" data-i18n="contactTitle">Find me where things ship.</h2>
+            <p data-i18n="contactText">
+              The fastest public paths are X, GitHub, and the products themselves.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="https://twitter.com/phoenix_zhang" target="_blank" rel="noreferrer">
+              <span>X / Twitter</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://github.com/phoenix747" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://polysage.xyz/" target="_blank" rel="noreferrer">
+              <span>Polysage</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="footer">
+          <span data-i18n="footerLeft">Phoenix Zhang · Beijing</span>
+          <span data-i18n="footerRight">Full-stack engineer · AI builder · Data infra</span>
+        </div>
+      </section>
+    </footer>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VV3Q4G5EL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9VV3Q4G5EL");
+    </script>
 
     <script>
       const translations = {
         en: {
-          hello: "👋🏻 Hello",
-          intro: "I am Phoenix.",
-          location: "I am living and working in Beijing, China.",
-          description: "I am an experienced full-stack engineer, proficient in a wide range of skills across the IT engineering spectrum, including front-end, back-end, client-side, and data domains. Over the years, I have been working in well-known large enterprises, accumulating extensive practical experience and deep industry insights. In the future, I aspire to create my own independent products in the field of AI applications, utilizing advanced technologies to bring convenience to people's lives and work.",
-          twitter: "You can find me on Twitter where I share my life and work.",
-          aiX: "I have created a project named <a href=\"https://ai-x.rocks\">AI X</a>. AI X is an innovative tool designed to generate Twitter content (both text and images) using AI technology, and automatically schedule posts based on selected topics. This tool aims to help users easily create engaging Twitter content while saving time and effort. With AI-powered topic selection and content generation capabilities, users can maintain an active Twitter presence and provide valuable information to their followers.",
-          freeVPS: "I have also created a tutorial titled \"<a href=\"https://phoenixnir.gumroad.com/l/enrlql\">How to build a free high-traffic ladder</a>\". This guide provides step-by-step instructions on setting up a free, high-traffic VPS service using Google Cloud. It covers everything from obtaining Google Cloud's $300 free trial credit to configuring a virtual machine, installing and setting up Xray service, and even how to maintain free service by switching accounts when the trial period ends. This tutorial is ideal for those with some technical background who want to build their own high-traffic VPS service.",
-          cat: "I have a lovely British Shorthair cat named Nineteen, born on August 19, 2022, hence the name Nineteen. Nineteen is more than just a pet; it's an important member of our family. Its arrival has brought endless joy and warmth to our lives. Coming home to Nineteen's cheerful greetings every day instantly dissolves all the fatigue and stress. Its playful and clever antics always manage to make us burst into laughter, becoming an indispensable source of joy in our household. Every member of our family adores Nineteen. Its cuteness and loyalty have seamlessly blended into our daily lives, making every day a bit brighter."
+          navWork: "Work",
+          navAbout: "About",
+          navContact: "Contact",
+          heroSubtitle: "Full-stack engineer, AI builder, data infra.",
+          heroText:
+            "I build practical AI products and data systems from idea to production: product interfaces, backend services, automation, and the pipelines that keep them useful.",
+          location: "Beijing, China",
+          availability: "Building independent AI products",
+          viewWork: "View work",
+          followX: "Follow on X",
+          heroPanelTitle: "Prediction-market intelligence",
+          heroPanelText:
+            "Model edge, whale flow, and market movement in one daily scanning loop.",
+          workTitle: "Products in the open.",
+          workLede:
+            "Current and past projects sit where AI, public data, automation, and product design meet.",
+          polysageDesc:
+            "A public intelligence surface for Polymarket odds: opportunity markets, large-trade flow, movers, and model watchlists designed for daily scanning.",
+          polysageTagOne: "prediction markets",
+          polysageTagTwo: "data product",
+          polysageTagThree: "market intelligence",
+          aiXDesc:
+            "An AI-assisted content tool for generating, selecting, and scheduling Twitter/X posts with a practical workflow around creator-owned API keys.",
+          aiXTagOne: "AI content",
+          aiXTagTwo: "automation",
+          aiXTagThree: "creator tooling",
+          aboutTitle: "Builder first.",
+          aboutCopy:
+            "I work across the full stack because useful AI products rarely stop at one layer. The interface, backend, data model, observability, and delivery path all have to line up before a product becomes something people can return to.",
+          principleOneTitle: "Ship the working loop",
+          principleOneText:
+            "Start with the smallest real workflow that creates signal, then harden it with feedback from production data.",
+          principleTwoTitle: "Make data usable",
+          principleTwoText:
+            "Data infra is only valuable when people can trust it, inspect it, and turn it into decisions without ceremony.",
+          principleThreeTitle: "Keep products practical",
+          principleThreeText:
+            "The best AI features disappear into the workflow instead of asking users to babysit a demo.",
+          personalTitle: "A small personal note.",
+          catNote:
+            "Outside work, there is Nineteen, a golden British Shorthair born on August 19, 2022. He keeps the house warm, noisy in the right way, and a little less optimized.",
+          signalTitle: "Less posture. More shipped surface.",
+          signalText: "Products, data systems, and notes from the build side of AI.",
+          contactTitle: "Find me where things ship.",
+          contactText: "The fastest public paths are X, GitHub, and the products themselves.",
+          footerLeft: "Phoenix Zhang · Beijing",
+          footerRight: "Full-stack engineer · AI builder · Data infra",
         },
         zh: {
-          hello: "👋🏻 你好",
-          intro: "我是Phoenix。",
-          location: "我生活和工作在中国北京。",
-          description: "我是一名经验丰富的全栈工程师，精通IT工程领域的广泛技能，包括前端、后端、客户端和数据领域。多年来，我一直在各类企业工作，积累了丰富的实践经验和深厚的行业洞察力。未来，我希望在AI应用领域创造自己的独立产品，利用先进技术为人们的生活和工作带来便利。",
-          twitter: "你可以在Twitter上找到我，那里我分享我的生活和工作。",
-          aiX: "我创建了一个名为 <a href=\"https://ai-x.rocks\">AI X</a> 的项目。AI X 是一个创新的工具，专门用于通过 AI 技术生成 Twitter 图文内容，并能够自动定时按选题发送。这个工具旨在帮助用户轻松创建引人入胜的 Twitter 内容，同时节省时间和精力。通过 AI 的智能选题和内容生成能力，用户可以保持其 Twitter 账户的活跃度，并提供有价值的信息给他们的关注者。",
-          freeVPS: "我还创建了一个名为 <a href=\"https://phoenixnir.gumroad.com/l/enrlql\">如何自建免费大流量梯子</a> 的教程。这个教程提供了设置使用 Google Cloud 的免费高流量 VPS 服务自建梯子的逐步指南。它涵盖了从获得 Google Cloud 的 $300 免费试用信用额度到配置虚拟机、安装和设置 Xray 服务，以及如何在试用期结束时切换账户来维持免费服务的所有内容。这个教程适合那些有技术背景的人，他们想自己建立高流量梯子服务。",
-          cat: "我有一只可爱的金渐层猫，名叫Nineteen，出生于2022年8月19日，因此得名Nineteen。Nineteen不仅仅是一只宠物，它是我们家庭的重要成员。它的到来为我们的生活带来了无尽的欢乐和温暖。每天回到家看到Nineteen愉快的问候，瞬间就能消除所有的疲劳和压力。它调皮可爱的举动总能让我们开怀大笑，成为我们家中不可或缺的欢乐源泉。我们家的每个成员都喜爱Nineteen。它的可爱和忠诚已经无缝融入我们的日常生活，让每一天都变得更加美好。"
-        }
+          navWork: "作品",
+          navAbout: "关于",
+          navContact: "联系",
+          heroSubtitle: "全栈工程师，AI builder，data infra。",
+          heroText:
+            "我从想法到生产环境构建实用的 AI 产品和数据系统：产品界面、后端服务、自动化流程，以及让这些系统持续有用的数据管道。",
+          location: "中国北京",
+          availability: "正在构建独立 AI 产品",
+          viewWork: "查看作品",
+          followX: "去 X 找我",
+          heroPanelTitle: "预测市场情报工具",
+          heroPanelText:
+            "把模型边际、巨鲸交易流和市场异动放进一个可每日扫描的工作流。",
+          workTitle: "公开运行中的产品。",
+          workLede:
+            "这些项目交汇在 AI、公开数据、自动化和产品设计之间。",
+          polysageDesc:
+            "面向 Polymarket odds 的公开市场情报界面：机会市场、大额交易流、异动市场和模型观察列表，用于每日快速扫描。",
+          polysageTagOne: "预测市场",
+          polysageTagTwo: "数据产品",
+          polysageTagThree: "市场情报",
+          aiXDesc:
+            "一个 AI 内容工具，用来生成、筛选并定时发布 Twitter/X 内容，围绕用户自己的 API key 形成实用工作流。",
+          aiXTagOne: "AI 内容",
+          aiXTagTwo: "自动化",
+          aiXTagThree: "创作者工具",
+          aboutTitle: "先是 builder。",
+          aboutCopy:
+            "我做全栈，是因为真正有用的 AI 产品通常不会停在某一层。界面、后端、数据模型、可观测性和交付路径都要对齐，产品才会变成别人愿意反复使用的东西。",
+          principleOneTitle: "先跑通真实闭环",
+          principleOneText:
+            "从能产生信号的最小真实工作流开始，再用生产数据的反馈把它加固。",
+          principleTwoTitle: "让数据真的可用",
+          principleTwoText:
+            "data infra 的价值在于能被信任、能被检查，并且能直接转化为决策。",
+          principleThreeTitle: "让产品保持实用",
+          principleThreeText:
+            "好的 AI 功能应该融入工作流，而不是让用户照看一个 demo。",
+          personalTitle: "一点生活侧面。",
+          catNote:
+            "工作之外，家里有 Nineteen，一只 2022 年 8 月 19 日出生的金渐层。它让家里更暖、更热闹，也让生活少一点过度优化。",
+          signalTitle: "少一点姿态，多一点上线的东西。",
+          signalText: "AI 构建侧的产品、数据系统和笔记。",
+          contactTitle: "在发布东西的地方找到我。",
+          contactText: "最直接的公开路径是 X、GitHub 和这些产品本身。",
+          footerLeft: "Phoenix Zhang · 北京",
+          footerRight: "全栈工程师 · AI builder · Data infra",
+        },
       };
 
-      function getBrowserLanguage() {
-        const lang = navigator.language || navigator.userLanguage;
-        return lang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+      const html = document.documentElement;
+      const languageButtons = document.querySelectorAll("[data-lang-option]");
+
+      function preferredLanguage() {
+        const stored = window.localStorage.getItem("phoenix-language");
+        if (stored === "zh" || stored === "en") return stored;
+        return navigator.language && navigator.language.toLowerCase().startsWith("zh")
+          ? "zh"
+          : "en";
       }
 
-      function updateLanguage(lang) {
-        document.documentElement.lang = lang;
-        const elements = document.querySelectorAll('[data-translate]');
-        elements.forEach(element => {
-          const key = element.getAttribute('data-translate');
-          if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-          }
+      function setLanguage(lang) {
+        html.lang = lang === "zh" ? "zh-CN" : "en";
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          node.textContent = translations[lang][key] || translations.en[key] || "";
         });
-        
-        // 更新选择框的值
-        document.getElementById('languageSelect').value = lang;
+        languageButtons.forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            button.getAttribute("data-lang-option") === lang ? "true" : "false"
+          );
+        });
+        window.localStorage.setItem("phoenix-language", lang);
       }
 
-      document.getElementById('languageSelect').addEventListener('change', (e) => {
-        updateLanguage(e.target.value);
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.getAttribute("data-lang-option"));
+        });
       });
 
-      // 初始化语言
-      const initialLang = getBrowserLanguage();
-      updateLanguage(initialLang);
+      setLanguage(preferredLanguage());
     </script>
   </body>
 </html>
